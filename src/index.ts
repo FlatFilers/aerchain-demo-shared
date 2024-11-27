@@ -6,41 +6,52 @@ import autoFix from "./jobs/autoFix";
 import { FlatfileRecord, bulkRecordHook } from "@flatfile/plugin-record-hook";
 import { fetchReferences } from "./jobs/fetchReferences";
 
+// Main function to configure the Flatfile listener
 export default function (listener: FlatfileListener) {
-  listener.use(configureSpace({
-    workbooks: [
-      {
-        name: "Aerchain - Product Import",
-        sheets: [products, categories, commodities],
-        actions: [
-          {
-            operation: "submitActionBg",
-            mode: "background",
-            label: "Submit",
-            primary: true,
+  // Configure the space with workbooks and sheets
+  listener.use(
+    configureSpace({
+      workbooks: [
+        {
+          name: "Aerchain - Product Import",
+          sheets: [products, categories, commodities],
+          actions: [
+            {
+              operation: "submitActionBg",
+              mode: "background",
+              label: "Submit",
+              primary: true,
+            },
+          ],
+        },
+      ],
+      space: {
+        metadata: {
+          theme: {
+            root: {
+              primaryColor: "#000000",
+              actionColor: "#000000",
+            },
+            sidebar: {
+              logo: "https://cdn.prod.website-files.com/6682cabfabc3d6652920ac6d/668425b6e4d8d8e8fc0e36b6_Aerchain_-_Light_Version-removebg-preview-p-500.png",
+            },
           },
-        ],
-      }
-    ],
-    space: {
-      metadata: {
-        theme: {
-          root: {
-            primaryColor: "#000000",
-            actionColor: "#000000"
-          },
-          sidebar: {
-            logo: "https://cdn.prod.website-files.com/6682cabfabc3d6652920ac6d/668425b6e4d8d8e8fc0e36b6_Aerchain_-_Light_Version-removebg-preview-p-500.png"
-          },
-        }
-      }
-    }
-  }));
+        },
+      },
+    })
+  );
 
-  listener.use(jobHandler("workbook:submitActionBg", async (event, tick) => {console.log(event)}))
+  // Handle the submit action
+  // TODO: Add your own submit logic here
+  listener.use(
+    jobHandler("workbook:submitActionBg", async (event, tick) => {
+      console.log(event);
+    })
+  );
   listener.use(fetchReferences());
-  listener.use(autoFix)
+  listener.use(autoFix);
 
+  // Logic to validate and process records in the "products" sheet
   listener.use(
     bulkRecordHook("products", (records: FlatfileRecord[]) => {
       records.map((record) => {
@@ -51,18 +62,21 @@ export default function (listener: FlatfileListener) {
         const priceRegex = /^\d{0,8}(\.\d{1,2})?$/;
 
         if (createdDate) {
-            if (!dateRegex.test(createdDate)) {
-                record.addError("createdDate", `Dates must be in MM/DD/YYYY format`);
-            }
+          if (!dateRegex.test(createdDate)) {
+            record.addError(
+              "createdDate",
+              `Dates must be in MM/DD/YYYY format`
+            );
+          }
         }
         if (stdCostUpdated) {
-            if (!priceRegex.test(stdCostUpdated)) {
-                record.addError("stdCostUpdated", `Price must be in 0.00 format`);
-            }
+          if (!priceRegex.test(stdCostUpdated)) {
+            record.addError("stdCostUpdated", `Price must be in 0.00 format`);
+          }
         }
 
         return record;
-      })
+      });
     })
   );
 }

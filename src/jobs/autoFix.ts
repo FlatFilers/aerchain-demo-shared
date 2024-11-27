@@ -5,6 +5,7 @@ import * as chrono from "chrono-node";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 
+// Job handler for the "sheet:auto-fix" event
 export default jobHandler("sheet:auto-fix", async ({ context }, tick) => {
   const { jobId, sheetId } = context;
 
@@ -20,6 +21,7 @@ export default jobHandler("sheet:auto-fix", async ({ context }, tick) => {
       const createdDate = record.createdDate as string;
       const stdCostUpdated = record.stdCostUpdated as string;
 
+      // Normalize the createdDate field if it exists
       if (createdDate) {
         const normalizedDate = normalizeDate(createdDate);
         console.log({ normalizedDate });
@@ -29,8 +31,9 @@ export default jobHandler("sheet:auto-fix", async ({ context }, tick) => {
         }
       }
 
+      // Normalize the stdCostUpdated field if it exists
       if (stdCostUpdated) {
-        console.log("in if")
+        console.log("in if");
         const normalizedCost = parseFloat(stdCostUpdated).toFixed(2);
         console.log({ normalizedCost });
         if (normalizedCost) {

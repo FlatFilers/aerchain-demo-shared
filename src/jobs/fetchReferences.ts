@@ -1,7 +1,9 @@
 import api from "@flatfile/api";
 import { FlatfileListener, FlatfileEvent } from "@flatfile/listener";
 
+// Function to auto-fill reference sheets when a workbook is created
 export function fetchReferences() {
+  // Event listener for when a workbook is created
   return (listener: FlatfileListener) => {
     listener.on("workbook:created", async (event: FlatfileEvent) => {
       const workbook = await api.workbooks.get(event.context.workbookId);
@@ -36,12 +38,19 @@ export function fetchReferences() {
               if (categoriesSheet && Array.isArray(result)) {
                 const categoriesId = categoriesSheet.id;
                 const mappedCategories = result.map(
-                  ([serialNumber, name, reference, parentCategory, description, enableProductAddition]) => ({
-                    "serialNumber": { value: serialNumber },
-                    "name": { value: name },
-                    "reference": { value: reference },
-                    "parentCategory": { value: parentCategory },
-                    "description": { value: description },
+                  ([
+                    serialNumber,
+                    name,
+                    reference,
+                    parentCategory,
+                    description,
+                    enableProductAddition,
+                  ]) => ({
+                    serialNumber: { value: serialNumber },
+                    name: { value: name },
+                    reference: { value: reference },
+                    parentCategory: { value: parentCategory },
+                    description: { value: description },
                     "enable-product-addition": { value: enableProductAddition },
                   })
                 );
@@ -72,10 +81,10 @@ export function fetchReferences() {
                 const commoditiesId = commoniditesSheet.id;
                 const mappedCommodities = comResult.map(
                   ([commodity, uom, subCommodity, subUnit]) => ({
-                    "commodity": { value: commodity },
-                    "uom": { value: uom },
-                    "subCommodity": { value: subCommodity },
-                    "subUnit": { value: subUnit }
+                    commodity: { value: commodity },
+                    uom: { value: uom },
+                    subCommodity: { value: subCommodity },
+                    subUnit: { value: subUnit },
                   })
                 );
                 try {
