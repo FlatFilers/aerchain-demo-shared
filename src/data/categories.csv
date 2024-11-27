@@ -1,0 +1,51 @@
+serialNumber,name,reference,parentCategory,description,enable-product-addition
+2,"Silica, High-Purity",R1001,Finished Goods,,false
+3,Graphite Powder,R1002,Services,,true
+4,Silicon Carbide,R1003,Utilities,,true
+5,"Steel, Galvanized Sheets",R1004,Raw Materials,,true
+6,Aluminum Ingots,R1005,Services,,false
+7,Copper Cathodes,R1006,Utilities,,false
+8,Polypropylene Resin,R1007,Utilities,,false
+9,Polyester Fiber,R1008,Finished Goods,,false
+10,Activated Carbon,R1009,Finished Goods,,true
+11,Calcium Carbonate,R1010,Services,,true
+12,Zinc Oxide,R1011,Raw Materials,,false
+13,Titanium Dioxide,R1012,Raw Materials,,true
+14,Ceramic Tiles,R1013,Raw Materials,,true
+15,Plastic Granules,R1014,Raw Materials,,true
+16,Rubber Compounds,R1015,Raw Materials,,true
+17,Abrasive Grinding Wheels,R1016,Services,,false
+18,Industrial Paints,R1017,Services,,false
+19,Wood Pellets,R1018,Services,,false
+20,PVC Pipes,R1019,Services,,true
+21,Insulation Foam,R1020,Finished Goods,,false
+22,Hydraulic Fluids,R1021,Services,,true
+23,Lubricating Oils,R1022,Raw Materials,,false
+24,Welding Rods,R1023,Utilities,,false
+25,Electrical Cables,R1024,Finished Goods,,false
+26,Industrial Adhesives,R1025,Finished Goods,,true
+27,Stainless Steel Fasteners,R1026,Finished Goods,,false
+28,HVAC Filters,R1027,Services,,true
+29,Safety Helmets,R1028,Utilities,,true
+30,Fire-Resistant Fabrics,R1029,Raw Materials,,true
+31,Concrete Additives,R1030,Services,,false
+32,Glass Wool Insulation,R1031,Utilities,,false
+33,Roofing Shingles,R1032,Utilities,,false
+34,Sandpaper Rolls,R1033,Finished Goods,,false
+35,Brass Fittings,R1034,Finished Goods,,true
+36,Tungsten Electrodes,R1035,Services,,true
+37,Industrial Solvents,R1036,Raw Materials,,false
+38,Water Treatment Chemicals,R1037,Raw Materials,,true
+39,"Bearings, Ball-Type",R1038,Raw Materials,,true
+40,Chain Belts,R1039,Raw Materials,,true
+41,Conveyor Rollers,R1040,Finished Goods,,true
+42,Pneumatic Tools,R1041,Services,,false
+43,LED Light Fixtures,R1042,Raw Materials,,false
+44,Circuit Breakers,R1043,Utilities,,false
+45,Plumbing Valves,R1044,Finished Goods,,true
+46,Office Furniture,R1045,Finished Goods,,false
+47,Cleaning Supplies,R1046,Finished Goods,,true
+48,Packaging Materials,R1047,Finished Goods,,false
+49,IT Equipment,R1048,Services,,false
+50,Laboratory Glassware,R1049,Raw Materials,,false
+51,Medical PPE Supplies,R1050,Utilities,,true

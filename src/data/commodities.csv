@@ -1,0 +1,13 @@
+commodity,uom,subCommodity,subUnit
+Chemicals products (W050701),Each,Advert. agency fees (X020101),Each
+Graphic chain pack design (X030101),Box,APO Services (V050401),Box
+Office Supplies (W050801),Carton,Paper products (X010201),
+Cement (C020301),Box,,
+Vehicle Maintenance (M030501),Box,Cement (C020301),Box
+IT Equipment (T020101),Carton,Cement (C020301),
+Sterile Gloves (M070101),Carton,,
+Advert. agency fees (X020101),Each,,
+APO Services (V050401),Box,,
+Paper products (X010201),Carton,,
+Medical Supplies (M060101),Box,Sterile Gloves (M070101),Box
+Construction Materials (C040201),Carton,,
